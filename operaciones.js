@@ -1,17 +1,17 @@
 const fs = require('fs');
 
 function registrar(nombre, edad, tipo, color, enfermedad) {
-  // Leemos el archivo citas.json
+  // Read file citas.json
   fs.readFile('citas.json', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
 
-    // Convertimos la data a formato JSON
+    //Convert the data to JSON format
     const citas = JSON.parse(data);
 
-    // Agregamos la nueva cita al arreglo
+    // Add the new appointment to the array
     citas.push({
       nombre,
       edad,
@@ -20,7 +20,7 @@ function registrar(nombre, edad, tipo, color, enfermedad) {
       enfermedad
     });
 
-    // Guardamos el arreglo en el archivo citas.json
+    // Save the arrangement in the file appointments.json
     fs.writeFile('citas.json', JSON.stringify(citas), err => {
       if (err) {
         console.error(err);
@@ -32,14 +32,14 @@ function registrar(nombre, edad, tipo, color, enfermedad) {
 }
 
 function leer() {
-  // Leemos el archivo citas.json
+  // Read file citas.json
   fs.readFile('citas.json', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
 
-    // Convertimos la data a formato JSON y la mostramos en la consola
+    // Convert the data to JSON format and display it in the console
     console.log(JSON.parse(data));
   });
 }
